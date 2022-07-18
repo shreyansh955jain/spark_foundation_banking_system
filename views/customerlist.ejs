@@ -1,0 +1,36 @@
+<%- include("partials/header") %>
+<div class="heading">
+  <p>CUSTOMER DETAILS</p>
+</div>
+<div class="list">
+  <table>
+    <thead class="heading1">
+      <tr>
+        <th>Customer Name</th>
+        <th>E-mail</th>
+        <th>Mobile Number</th>
+        <th>Balance</th>
+        <th>View Customer</th>
+      </tr>
+    </thead>
+    <%for(let i=0;i<user.length;i++){%>
+
+      <tbody class="header2">
+        <tr>
+          <form action="/showcustomer" method="post">
+          <td><%=user[i].name%></td>
+          <td><%=user[i].email%></td>
+          <td><%=user[i].mnumber%></td>
+          <td><%=user[i].credits%></td>
+
+            <td><button class="btn btn-lg" type="submit" name="view" value="<%=user[i]._id%>">View</button></td>
+          </form>
+        </tr>
+      </tbody>
+    <%}%>
+
+  </table>
+</div>
+
+
+<%- include("partials/footer") %>

@@ -1,0 +1,41 @@
+<%- include("partials/header") -%>
+<h1 class="frontline">Welcome to the Spark Foundation Bank</h1>
+<h2 style="text-align:center"> Where the world comes for financial advice.</h2>
+<div class="container-fluid home">
+  <div class="row">
+    <div class="col-md-3">
+      <img src="images/user.png" id = "user-img"class="front">
+      <div class="button">
+        <form action="/createuser" method="post">
+          <button class="btn btn-lg" type="submit" name="button" href="/createuser">Create user</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <img src="images/customers.webp" class="front">
+      <div class="button">
+        <form  action="/viewcustomer" method="post">
+          <button class="btn btn-lg" type="submit" name="button" href="/viewcustomer">view customer</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <img src="images/3029373.png" class="front">
+      <div class="button">
+        <form  action="/transfermoney" method="post">
+          <button class="btn btn-lg" type="submit" name="button" href="/transfermoney">Transfer money</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <img src="images/6165493.png" class="front">
+      <div class="button">
+        <form  action="/history" method="post">
+          <button class="btn btn-lg" type="submit" name="button" href="/transactionhistory">Transaction history</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer") %>

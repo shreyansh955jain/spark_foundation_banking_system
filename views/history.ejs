@@ -1,0 +1,125 @@
+<%- include("partials/header") %>
+<style media="screen">
+  body,
+  div,
+  form,
+  input,
+  select,
+  p {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 16px;
+    color: #eee;
+  }
+  .btn-item,
+  button {
+    padding: 10px 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+    background: #205375;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+  }
+  .btn{
+    margin-bottom:20px;
+  }
+  .btn-item {
+    display: inline-block;
+    margin: 10px 5px 0;
+  }
+  .current{
+    width:25%;
+    margin-left:37%;
+    padding:20px;
+  }
+  input,
+  select {
+    padding: 5px;
+    margin-bottom: 30px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+  .info{
+    display:inline-block;
+    margin-left:20px;
+  }
+    form {
+      background: rgba(0, 0, 0, 0.7);
+    }
+    .title {
+      display: flex;
+      align-items: center;
+      padding:20px;
+    }
+      input::placeholder {
+        color: ##F0FFF0;
+      }
+      .print{
+        color:black;
+      }
+      .alert{
+        display:flex;
+        justify-content:center;
+      }
+</style>
+<h1 class="heading" style="color:black">Check your transaction history</h1>
+<div class="current">
+  <form  action="/showhistory" method="post">
+    <div class="title">
+      <h2>Enter the details</h2>
+    </div>
+    <div class="info">
+      <label for="transferedname">Name:</label>
+      <input type="text" name="transferedname" value="" placeholder="Name">
+      <br>
+      <label for="transferedemail">Email:</label>
+      <input type="email" name="transferedemail" value="" placeholder="Email">
+      <br>
+      <button class="btn btn-lg" type="submit" name="button">show history</button>
+    </div>
+  </form>
+</div>
+<div class="print">
+  <%if(m!=""){%>
+    <div class="alert alert-danger" role="alert">
+      <h1><%=m%></h1>
+    </div>
+  <%}else  if(flag==0){%>
+    <div class="list">
+      <table>
+        <thead class="heading1">
+          <tr>
+            <th>FROM</th>
+            <th>TO</th>
+            <th>Amount Transfered</th>
+            <th>Date</th>
+            <th>TIme</th>
+          </tr>
+        </thead>
+      <%for(let i=0;i<t.length;i++){%>
+        <%for(let j=0;j<t[i].length;j++){%>
+          <%for(let k=0;k<t[i][j].details.length;k++){%>
+            <tbody class="header2">
+              <tr>
+                <td><%=t[i][j].details[k].from%></td>
+                <td><%=t[i][j].details[k].to%></td>
+                <td><%=t[i][j].details[k].amount%></td>
+                <td><%=t[i][j].details[k].date%></td>
+                <td><%=t[i][j].details[k].time%></td>
+              </tr>
+            </tbody>
+            <br>
+          <%}%>
+        <%}%>
+      <%}%>
+      <table>
+      </div>
+    <%}%>
+</div>
+<%- include("partials/footer") %>

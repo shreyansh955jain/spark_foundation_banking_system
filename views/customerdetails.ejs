@@ -1,0 +1,32 @@
+<%- include("partials/header") %>
+<style media="screen">
+  .container-fluid{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    align-items:left;
+  }
+  .center {
+    background-color: rgba(0, 0, 0, 0.7);
+    color:#fff;
+  margin: auto;
+  width: 25%;
+  border: 5px solid #33ccad ;
+  padding: 10px;
+  margin-top:40px;
+}
+.footer{
+  margin-top: 215px;
+}
+</style>
+<p class="heading">Customer Details</p>
+
+<div class="container-fluid center">
+  <h2>Name: <%=name%></h2>
+  <h2>Mobile Number: <%=mn%></h2>
+  <h2>Email: <%=email%></h2>
+  <h2>Balance: <%=b%></h2>
+</div>
+
+
+<%- include("partials/footer") %>
